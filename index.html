@@ -11,16 +11,34 @@
 		<div id="app">
 			<!-- A properties from app.js accessible here as a variables -->
 			<!-- We can't use them outside of the scope of #app -->
-			<p>{{ title }} - {{ author }} - {{ age }}</p>
 			<!-- Click events: you can apply them below or in app.js by creating a component method -->
 			<!-- We use JS (from app.js) inside quotes  -->
-			<button v-on:click="age++">Increase age</button>
-			<button v-on:click="age--">Decrease age</button>
+			<!-- <button v-on:click="age++">Increase age</button>
+			<button v-on:click="age--">Decrease age</button> -->
 			<!-- Clicking "Change title and save it" replaces a book title to "something else"-->
 			<!-- <div @click="title = 'something else'">Change title and save it</div> -->
 			<!-- Access changeTitle method from app.js which invokes changeTitle() function in app.js-->
 			<!-- You can also passing functions when we call them arguments, e.g "Oathbringer" a string argument -->
-			<div @click="changeTitle('Oathbringer')">Change title and save it</div>
+			<!-- <div @click="changeTitle('Oathbringer')">Change title and save it</div> -->
+			<!-- if v-if="true" , we display content below, otherwise - we don't-->
+			<!-- <div v-if="true">
+				<p>{{ title }} - {{ author }} - {{ age }}</p>
+			</div> -->
+
+			<div v-if="showBooks">
+				<p>{{ title }} - {{ author }} - {{ age }}</p>
+			</div>
+			<!-- Uses DOM by injecting and removing DOM elements, it is expensive, not advisable-->
+			<button @click="toggleShowBooks">
+				<!-- Good case to use for Login/Register showing, something it doesn't get changed very often -->
+				<span v-if="showBooks">Hide Books</span>
+				<!-- <span v-if="!showBooks">Show Books</span> -->
+				<!-- OR -->
+				<span v-else>Show Books</span>
+			</button>
+			<!-- The below uses CSS toggling display:block and display:none Not injecting/removing anything-->
+			<!-- Good for something we use over and over: links in navbar, dropdown contents  -->
+			<div v-show="showBooks">currently showing books</div>
 		</div>
 		<!-- Controlled by Vue ends -->
 		<script src="app.js"></script>

@@ -8,19 +8,17 @@ const app = Vue.createApp({
 		// Return an object
 		return {
 			// properties
+			showBooks: true,
 			title: "The Final Empire",
 			author: "Brandon Sanderson",
 			age: 45,
 		};
 	},
-	// Create a component method (called "changeTitle") for click events
+	// Create a component method
 	methods: {
-		// 'title' is accepted as a parameter, it can be called whatever you want, e.g changeTitle(abc)
-		changeTitle(title) {
-			// Update a title
-			// 'this' references a component itself, just using 'title' doesn't work
-			// this.title = "Words of Randiance";
-			this.title = title; // or this.title = abc, if changeTitle(abc)
+		toggleShowBooks() {
+			// Toggle functionality - hide/show
+			this.showBooks = !this.showBooks;
 		},
 	},
 });
