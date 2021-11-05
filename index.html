@@ -4,27 +4,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Learning Vue</title>
 		<script src="https://unpkg.com/vue@3.0.2"></script>
+		<style>
+			.box {
+				padding: 100px 0;
+				width: 400px;
+				text-align: center;
+				background: #ddd;
+				margin: 20px;
+				display: inline-block;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Hello, Vue :)</h1>
 		<!-- Controlled by Vue starts -->
 		<div id="app">
-			<!-- A properties from app.js accessible here as a variables -->
-			<!-- We can't use them outside of the scope of #app -->
-			<!-- Click events: you can apply them below or in app.js by creating a component method -->
-			<!-- We use JS (from app.js) inside quotes  -->
-			<!-- <button v-on:click="age++">Increase age</button>
-			<button v-on:click="age--">Decrease age</button> -->
-			<!-- Clicking "Change title and save it" replaces a book title to "something else"-->
-			<!-- <div @click="title = 'something else'">Change title and save it</div> -->
-			<!-- Access changeTitle method from app.js which invokes changeTitle() function in app.js-->
-			<!-- You can also passing functions when we call them arguments, e.g "Oathbringer" a string argument -->
-			<!-- <div @click="changeTitle('Oathbringer')">Change title and save it</div> -->
-			<!-- if v-if="true" , we display content below, otherwise - we don't-->
-			<!-- <div v-if="true">
-				<p>{{ title }} - {{ author }} - {{ age }}</p>
-			</div> -->
-
 			<div v-if="showBooks">
 				<p>{{ title }} - {{ author }} - {{ age }}</p>
 			</div>
@@ -36,9 +30,17 @@
 				<!-- OR -->
 				<span v-else>Show Books</span>
 			</button>
-			<!-- The below uses CSS toggling display:block and display:none Not injecting/removing anything-->
-			<!-- Good for something we use over and over: links in navbar, dropdown contents  -->
-			<div v-show="showBooks">currently showing books</div>
+			<br />
+			<!-- mouse events -->
+			<!-- Passing in "our own", or custom argument 5 which will be used as a parameter in app.js , handleEvents(e) where 'e' is 5. But it gives us undefined in console. But when we have $event as a first argument, and 5 as a second, all is working. With empty function =handleEvents, handleEvents function automatically uses (e) object as parameter/argument-->
+			<div class="box" @mouseover="handleEvents($event, 5)">
+				mouseover (enter)
+			</div>
+			<div class="box" @mouseleave="handleEvents">mouseleave</div>
+			<div class="box" @dblclick="handleEvents">doubleclick</div>
+			<div class="box" @mousemove="handleMousemove">
+				position {{ x }} {{ y }}
+			</div>
 		</div>
 		<!-- Controlled by Vue ends -->
 		<script src="app.js"></script>
