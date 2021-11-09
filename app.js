@@ -9,11 +9,12 @@ const app = Vue.createApp({
 		return {
 			// properties
 			showBooks: true,
-			title: "The Final Empire",
-			author: "Brandon Sanderson",
-			age: 45,
-			x: 0, // 0 by default
-			y: 0, // 0 by default
+			// array property consisting an object properties for 'title' and 'author' which we can output as a list using v-for
+			books: [
+				{ title: "name of the wind", author: "patrick rothfuss" },
+				{ title: "the way of kings", author: "brandon sanderson" },
+				{ title: "the final empire", author: "brandon sanderson" },
+			],
 		};
 	},
 	// Create a component method

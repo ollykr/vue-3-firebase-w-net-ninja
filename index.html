@@ -20,7 +20,17 @@
 		<!-- Controlled by Vue starts -->
 		<div id="app">
 			<div v-if="showBooks">
-				<p>{{ title }} - {{ author }} - {{ age }}</p>
+				<!-- <p>{{ books[0].title }} - {{ books[0].author }}</p>
+				<p>{{ books[1].title }} - {{ books[1].author }}</p>
+				<p>{{ books[2].title }} - {{ books[2].author }}</p> -->
+				<!-- Instead of the above use v-for below -->
+				<ul>
+					<!-- 'book' can be called 'item' whatever else , 'books' is a name of an array property from 'app.js'-->
+					<li v-for="book in books">
+						<h3>{{ book.title }}</h3>
+						<p>{{ book.author}}</p>
+					</li>
+				</ul>
 			</div>
 			<!-- Uses DOM by injecting and removing DOM elements, it is expensive, not advisable-->
 			<button @click="toggleShowBooks">
