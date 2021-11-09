@@ -8,12 +8,25 @@ const app = Vue.createApp({
 		// Return an object
 		return {
 			// properties
+			url: "http//www.thenetninja.co.uk",
 			showBooks: true,
 			// array property consisting an object properties for 'title' and 'author' which we can output as a list using v-for
 			books: [
-				{ title: "name of the wind", author: "patrick rothfuss" },
-				{ title: "the way of kings", author: "brandon sanderson" },
-				{ title: "the final empire", author: "brandon sanderson" },
+				{
+					title: "name of the wind",
+					author: "patrick rothfuss",
+					img: "/assets/1.jpg",
+				},
+				{
+					title: "the way of kings",
+					author: "brandon sanderson",
+					img: "/assets/2.jpg",
+				},
+				{
+					title: "the final empire",
+					author: "brandon sanderson",
+					img: "/assets/3.jpg",
+				},
 			],
 		};
 	},

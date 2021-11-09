@@ -17,8 +17,24 @@
 	</head>
 	<body>
 		<h1>Hello, Vue :)</h1>
+		<!-- Notes about the lesson
+        Attribute Binding is when we bind dynamic values to html attributes
+        -->
 		<!-- Controlled by Vue starts -->
 		<div id="app">
+			<!-- Attribute Binding -->
+			<!-- href is an attribute , its value is "http//www.thenetninja.co.uk", what if I wan tot have it dynamic?-->
+			<!-- <a href="http//www.thenetninja.co.uk">Best website ever</a> -->
+			<!-- Dynamic version -->
+			<!-- "http//www.thenetninja.co.uk" is put as a value in 'url' data property in app.js -->
+			<!-- in order for a value in href, we need to do data (attribute) binding -->
+			<!-- We do data binding by using v-bind:href where 'href' is an attribute the dynamica value is attached to -->
+			<!-- Or we can use :href instead of v-bind:href -->
+			<!-- 'url' is a data property in app.js -->
+			<!-- <a v-bind:href="url">Best website ever</a> -->
+
+			<!-- Another example of attribute binding -->
+
 			<div v-if="showBooks">
 				<!-- <p>{{ books[0].title }} - {{ books[0].author }}</p>
 				<p>{{ books[1].title }} - {{ books[1].author }}</p>
@@ -27,6 +43,7 @@
 				<ul>
 					<!-- 'book' can be called 'item' whatever else , 'books' is a name of an array property from 'app.js'-->
 					<li v-for="book in books">
+						<img :src="book.img" :alt="book.title" />
 						<h3>{{ book.title }}</h3>
 						<p>{{ book.author}}</p>
 					</li>
