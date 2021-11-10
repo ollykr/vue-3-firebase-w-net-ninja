@@ -62,7 +62,11 @@
 					<!-- 'book' can be called 'item' whatever else , 'books' is a name of an array property from 'app.js'-->
 					<!-- :class == v-bind:class -->
 					<!-- class="fav" is added only if 'is Fav' property set to true -->
-					<li v-for="book in books" :class="{fav: book.isFav  }">
+					<li
+						v-for="book in books"
+						:class="{fav: book.isFav}"
+						@click="toggleFav(book)"
+					>
 						<img :src="book.img" :alt="book.title" />
 						<h3>{{ book.title }}</h3>
 						<p>{{ book.author}}</p>

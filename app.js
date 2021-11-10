@@ -39,6 +39,9 @@ const app = Vue.createApp({
 			// Toggle functionality - hide/show
 			this.showBooks = !this.showBooks;
 		},
+		toggleFav(book) {
+			book.isFav = !book.isFav;
+		},
 		// When we use events like mouseover, mouseleave, etc, we automatically have access to an optional object - event, or 'e' (or whatever we want to call it) which we have to use as a first parameter in a function, 'data' (it can be called anything) is a second parameter which is used for our custom '5' argument
 		handleEvents(e, data) {
 			console.log(e, e.type); // I can see an object properties in the console
