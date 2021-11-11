@@ -42,19 +42,16 @@ const app = Vue.createApp({
 		toggleFav(book) {
 			book.isFav = !book.isFav;
 		},
-		// When we use events like mouseover, mouseleave, etc, we automatically have access to an optional object - event, or 'e' (or whatever we want to call it) which we have to use as a first parameter in a function, 'data' (it can be called anything) is a second parameter which is used for our custom '5' argument
-		handleEvents(e, data) {
-			console.log(e, e.type); // I can see an object properties in the console
-			// e.type lets me to see in console event's type, e.g mouseover, mouseleave, etc
-			// If 'data' has an argument (it does - 5), then add it to console
-			if (data) {
-				console.log(data);
-			}
-		},
-		handleMousemove(e) {
-			// update x/y properties
-			this.x = e.offsetX;
-			this.y = e.offsetY;
+	},
+	// Make computed property inside a component (the same level as methods)
+	computed: {
+		filteredBooks() {
+			// the above function returns a value
+			// 'this' references a component and 'books' is the component's data property we want to access via JS 'filter' method
+			// 'filter' method fires up a callback function for each item inside "books" array
+			// Each time an item is true, we keep it in the 'filtered' array, if it returns false , we filters this item out of array
+			// We want to return TRUE, if "isFav" exists
+			return this.books.filter((book) => book.isFav);
 		},
 	},
 });

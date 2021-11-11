@@ -35,23 +35,13 @@
 	<body>
 		<h1>Hello, Vue :)</h1>
 		<!-- Notes about the lesson
-       By "dynamic classes" we mean when we conditionally give elements certain classes based on certain conditions
-	   e.g we can evaluate 'books' arrau and give a certain class to 'book' property based on isFav property true or false value
+       Computed properties is a way to define a data property inside of our components. That depends on all the data inside our components, 
+	   e.g if we create 'filtered books' array property in app.js, that array would depend on "books" array property in app.js. "Filtered books" depends on "books" data, if "books" data changes, then "filtered books" data changes as well
         -->
 		<!-- Controlled by Vue starts -->
 		<div id="app">
-			<!-- Attribute Binding -->
-			<!-- href is an attribute , its value is "http//www.thenetninja.co.uk", what if I wan tot have it dynamic?-->
-			<!-- <a href="http//www.thenetninja.co.uk">Best website ever</a> -->
-			<!-- Dynamic version -->
-			<!-- "http//www.thenetninja.co.uk" is put as a value in 'url' data property in app.js -->
-			<!-- in order for a value in href, we need to do data (attribute) binding -->
-			<!-- We do data binding by using v-bind:href where 'href' is an attribute the dynamica value is attached to -->
-			<!-- Or we can use :href instead of v-bind:href -->
-			<!-- 'url' is a data property in app.js -->
-			<!-- <a v-bind:href="url">Best website ever</a> -->
-
-			<!-- Another example of attribute binding -->
+			<!-- 'hello' displayed on a page because 'hello' string is a value of 'filteredBooks' function  but that doesn't make sense -->
+			<!-- <p>{{ filteredBooks }}</p> -->
 
 			<div v-if="showBooks">
 				<!-- <p>{{ books[0].title }} - {{ books[0].author }}</p>
@@ -62,8 +52,9 @@
 					<!-- 'book' can be called 'item' whatever else , 'books' is a name of an array property from 'app.js'-->
 					<!-- :class == v-bind:class -->
 					<!-- class="fav" is added only if 'is Fav' property set to true -->
+					<!-- We use 'filteredBooks' as our array to display a book with isFav === true, and filters out a book with isFav === false -->
 					<li
-						v-for="book in books"
+						v-for="book in filteredBooks"
 						:class="{fav: book.isFav}"
 						@click="toggleFav(book)"
 					>
