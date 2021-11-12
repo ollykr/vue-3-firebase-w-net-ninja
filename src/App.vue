@@ -1,11 +1,13 @@
 <template>
+<!-- Template exists in every Vue project -->
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
+// Script exists in every Vue project
 import HelloWorld from './components/HelloWorld.vue'
-
+// Objects being exported
 export default {
   name: 'App',
   components: {
@@ -15,6 +17,7 @@ export default {
 </script>
 
 <style>
+/* Style exists in every Vue project */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
