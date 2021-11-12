@@ -5,23 +5,28 @@
 <!-- But inside <template> you can organize your code however you wish -->
 <!-- Vue 3 allows multiple root elements inside <template> -->
 <template>
-	<!-- First root element -->
-	<img alt="Vue logo" src="./assets/logo.png" />
-	<!-- Second root element -->
-	<HelloWorld msg="Welcome to Your Vue.js App" />
+	<!-- From data() property -->
+	<h1>{{ title }}</h1>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-// Objects being exported
+// Objects "default" being exported
+// This object represents the root component
 export default {
 	name: "App",
-	components: {
-		HelloWorld,
+	data() {
+		return {
+			title: "My First Vue App :)",
+		};
 	},
+	// 'components' property registers any nested components (e.g "HelloWorld")
+	// components: {
+	// 	HelloWorld,
+	// },
 };
 </script>
-
+<!-- Global Styles -->
+<!-- Injected into a <head> of App.vue -->
 <style>
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -30,5 +35,10 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+}
+h1 {
+	border-bottom: 1px solid #ddd;
+	display: inline-block;
+	padding-bottom: 10px;
 }
 </style>
