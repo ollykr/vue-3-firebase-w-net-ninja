@@ -1,5 +1,6 @@
-<!-- Notes about Lesson 26 -->
-<!-- Custom event can be fired (emitted) from a component (e.g Modal.vue) and then it can be listened to from a parent component (e.g App.vue)  -->
+<!-- Notes about Lesson 27 -->
+<!-- We want to click on a backfrop element itself, not on its children, to close modal  -->
+<!-- Click modifiers modify how click event registers and when we react to them  -->
 
 <!-- Template refs allow us to store a reference to a DOM element inside a variable, once we have that refs, we can use regular JS methods and properties, e.g change classes, styles, text content, etc  -->
 
@@ -28,7 +29,8 @@
 		<!-- @close means we are listening to this custom event emitting from Modal.vue -->
 		<Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
 	</div>
-	<button @click="toggleModal">open modal</button>
+	<!-- @click.alt means that the modal opens only on alt clicking -->
+	<button @click.alt="toggleModal">open modal(alt)</button>
 </template>
 
 <script>

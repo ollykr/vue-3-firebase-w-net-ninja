@@ -2,7 +2,8 @@
 <template>
 	<!-- A semitransparent backdrop behind a modal -->
 	<!-- Clicking the backdrop, close the modal -->
-	<div class="backdrop" @click="closeModal">
+	<!-- @click.self means that only paremt backfrop element can be clicked to close the modal -->
+	<div class="backdrop" @click.self="closeModal">
 		<!-- It doesn't matter that we have 2 classes, data bound (dynamic) and static -->
 		<!-- Pass in an object to data bound class, its value is CSS class "sale", 'theme' is a prop, conditional boolen, if them is 'sale', apply certain style -->
 		<div class="modal" :class="{ sale: theme === 'sale' }">
