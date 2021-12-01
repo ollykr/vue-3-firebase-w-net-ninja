@@ -1,7 +1,8 @@
 <!-- A Modal / pop up component -->
 <template>
 	<!-- A semitransparent backdrop behind a modal -->
-	<div class="backdrop">
+	<!-- Clicking the backdrop, close the modal -->
+	<div class="backdrop" @click="closeModal">
 		<!-- It doesn't matter that we have 2 classes, data bound (dynamic) and static -->
 		<!-- Pass in an object to data bound class, its value is CSS class "sale", 'theme' is a prop, conditional boolen, if them is 'sale', apply certain style -->
 		<div class="modal" :class="{ sale: theme === 'sale' }">
@@ -16,6 +17,13 @@
 <script>
 export default {
 	props: ["header", "text", "theme"],
+	methods: {
+		closeModal() {
+			// Emitting the event
+			// $emit(' the name of the event we want to emit')
+			this.$emit("close");
+		},
+	},
 };
 </script>
 
