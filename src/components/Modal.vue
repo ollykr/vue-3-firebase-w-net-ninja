@@ -4,20 +4,20 @@
 	<!-- Clicking the backdrop, close the modal -->
 	<!-- @click.self means that only paremt backfrop element can be clicked to close the modal -->
 	<div class="backdrop" @click.self="closeModal">
-		<!-- It doesn't matter that we have 2 classes, data bound (dynamic) and static -->
-		<!-- Pass in an object to data bound class, its value is CSS class "sale", 'theme' is a prop, conditional boolen, if them is 'sale', apply certain style -->
 		<div class="modal" :class="{ sale: theme === 'sale' }">
-			<h1>{{ header }}</h1>
-			<p>{{ text }}</p>
+			<!-- Use a slot from App.vue -->
+			<!-- We can have it like <slot>Default slots</slot>, the text would only display if we don't have slot content (Ninja Giveway, grab your ninja, blablabla) , it is a nice fallback-->
+			<slot></slot>
+			<div class="actions">
+				<!-- Named slot called "links" -->
+				<slot name="links"></slot>
+			</div>
 		</div>
 	</div>
 </template>
-
-<!-- Accept a 'header' prop from a parent component to be used in the above <template> -->
-<!-- Register a 'header', 'text' and 'theme' props -->
 <script>
 export default {
-	props: ["header", "text", "theme"],
+	props: ["theme"],
 	methods: {
 		closeModal() {
 			// Emitting the event
@@ -52,6 +52,19 @@ export default {
 	border: none;
 	padding: 0;
 }
+.modal .actions {
+	text-align: center;
+	margin: 30px 0 10px 0;
+	color: #333;
+}
+.modal .actions a {
+	color: #333;
+	padding: 8px;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	text-decoration: none;
+	margin: 10px;
+}
 /* Overriding global styles for this component only */
 .modal p {
 	font-style: normal;
@@ -61,6 +74,12 @@ export default {
 	color: white;
 }
 .modal.sale h1 {
+	color: white;
+}
+.modal.sale .actions {
+	color: white;
+}
+.modal.sale .actions a {
 	color: white;
 }
 </style>
