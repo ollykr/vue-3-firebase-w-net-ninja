@@ -19,21 +19,29 @@
 	<h1>{{ title }}</h1>
 	<p>Welcome...</p>
 	<div v-if="showModal">
-		<!-- @close means we are listening to this custom event emitting from Modal.vue -->
-		<!-- Passing some content (a template) as slot to this custom component  -->
 		<Modal theme="sale" @close="toggleModal">
 			<h1>Ninja Giveway!</h1>
 			<p>Grab your ninja swag for half price!</p>
-			<!-- Create a named slot "links" for a link -->
-			<!-- Regular slot won't work for a link as it would take only what is inside <slot></slot> in Modal component -->
 			<template v-slot:links>
 				<a href="#">Sign Up now</a>
 				<a href="#">more info</a>
 			</template>
 		</Modal>
 	</div>
+	<div v-if="showModalTwo">
+		<Modal theme="sale" @close="toggleModalTwo">
+			<h1>Oleg's Giveway!</h1>
+			<p>Grab whatever you need for half price!</p>
+			<p>Enjoy your day!</p>
+			<template v-slot:linksTwo>
+				<a href="https://ccohs.ca">Sign Up now</a>
+				<a href="https://ccohs.ca/ccohs.html">More info</a>
+			</template>
+		</Modal>
+	</div>
 	<!-- @click.alt means that the modal opens only on alt clicking -->
 	<button @click.alt="toggleModal">open modal(alt)</button>
+	<button @click="toggleModalTwo">open My modal</button>
 </template>
 
 <script>
@@ -51,15 +59,18 @@ export default {
 	data() {
 		return {
 			title: "My First Vue App :)",
-			header: "Sign up for the Giveaway!",
-			text: "Grab your ninja swag for half price!",
 			showModal: false,
+			showModalTwo: false,
 		};
 	},
 	methods: {
 		toggleModal() {
 			// Reversing the current value
 			this.showModal = !this.showModal;
+		},
+		toggleModalTwo() {
+			// Reversing the current value
+			this.showModalTwo = !this.showModalTwo;
 		},
 	},
 };

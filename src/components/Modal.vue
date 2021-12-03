@@ -2,15 +2,13 @@
 <template>
 	<!-- A semitransparent backdrop behind a modal -->
 	<!-- Clicking the backdrop, close the modal -->
-	<!-- @click.self means that only paremt backfrop element can be clicked to close the modal -->
+	<!-- @click.self means that only parent backfrop element can be clicked to close the modal -->
 	<div class="backdrop" @click.self="closeModal">
 		<div class="modal" :class="{ sale: theme === 'sale' }">
-			<!-- Use a slot from App.vue -->
-			<!-- We can have it like <slot>Default slots</slot>, the text would only display if we don't have slot content (Ninja Giveway, grab your ninja, blablabla) , it is a nice fallback-->
 			<slot></slot>
 			<div class="actions">
-				<!-- Named slot called "links" -->
 				<slot name="links"></slot>
+				<slot name="linksTwo"></slot>
 			</div>
 		</div>
 	</div>
