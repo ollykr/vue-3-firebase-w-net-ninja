@@ -1,6 +1,7 @@
 <!-- Notes about Lesson 28 -->
 <!-- Slots are really useful to passing custom events to components (Modal.vue), slots pass templates to components which props don't really do, we don't use slots to pass a simple data like strings -->
 <!-- Slots are very suseful when you have a certain structure in your component, you can use them in different parts of your component, there are re-usable -->
+<!-- To make it clearer, their major difference is that with props, the parent can only pass the data down to the child without any control over how it will be rendered. But with slots, the parent can determine exactly how the data should be rendered, or even pass down another component. -->
 
 <!-- Template refs allow us to store a reference to a DOM element inside a variable, once we have that refs, we can use regular JS methods and properties, e.g change classes, styles, text content, etc  -->
 
