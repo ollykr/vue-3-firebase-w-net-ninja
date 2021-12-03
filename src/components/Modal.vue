@@ -71,6 +71,7 @@ export default {
 	background-color: crimson;
 	color: white;
 }
+
 .modal.sale h1 {
 	color: white;
 }
